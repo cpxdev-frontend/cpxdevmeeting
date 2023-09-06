@@ -71,8 +71,10 @@
             }
          }
          const randomNumber = Math.floor(Math.random() * 2) + 1;
+         $('#sendForm').attr('disabled', true)
       axios.post(`https://cpxdevapi${randomNumber}.azurewebsites.net/mymeeting/create`, jsonx)
          .then(function (response) {
+            $('#sendForm').attr('disabled', false)
             if (response.data.status == true) {
                Swal.fire(
                   'I created your meeting success, Boss.',
@@ -95,6 +97,7 @@
          })
          .catch(function (error) {
             console.log(error);
+            $('#sendForm').attr('disabled', false)
             Swal.fire(
                'Error Found',
                error.response.data.message,
