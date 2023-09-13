@@ -72,7 +72,7 @@
          }
          const randomNumber = Math.floor(Math.random() * 2) + 1;
          $('#sendForm').attr('disabled', true)
-      axios.post(`https://cpxdevapi${randomNumber}.azurewebsites.net/mymeeting/create`, jsonx)
+      axios.post(`https://cpxdevservice.onrender.com/mymeeting/create`, jsonx)
          .then(function (response) {
             $('#sendForm').attr('disabled', false)
             if (response.data.status == true) {
